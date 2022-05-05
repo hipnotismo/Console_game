@@ -1,0 +1,21 @@
+Singleton, usar para problemas grnades ya que es muy complejo.
+
+//Forma 1
+Public GaMEoBJECT OtroObjeto;
+
+OtroObjeto objetoScript = objeto.GetComponent<OtroObjeto>();
+
+objetoScript.Fucion();
+
+//Forma 2
+public OtroObjeto elOtro;
+
+elOtro.funcion();
+
+// Forama 3
+Sendmassage(); no es reomendado de usar ya que los errores y crashes solo aparecen en el runtime. 
+
+
+//Forma 4
+Invoke
+Solo apra cosas lcoales. 
