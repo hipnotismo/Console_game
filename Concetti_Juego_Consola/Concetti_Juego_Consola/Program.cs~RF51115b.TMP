@@ -30,7 +30,7 @@ namespace Concetti_Juego_Consola
         static void input()
         {
             ConsoleKeyInfo cki = Console.ReadKey();
-            if (cki.Key == ConsoleKey.LeftArrow)
+            if (cki.Key == ConsoleKey.RightArrow)
             {
                 if (play.posX != 0)
                 {
@@ -38,7 +38,7 @@ namespace Concetti_Juego_Consola
                 }
             }
 
-            if (cki.Key == ConsoleKey.RightArrow)
+            if (cki.Key == ConsoleKey.LeftArrow)
             {
                 
                     play.posX++;
