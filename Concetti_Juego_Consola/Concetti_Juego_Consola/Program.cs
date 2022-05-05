@@ -18,12 +18,13 @@ namespace Concetti_Juego_Consola
     {
         public int posY = 10;
         public int posX = 10;
+        public int random = 0;
     }
     class Program
     {
         static player play = new player();
         static enemy en = new enemy();
-
+        static Random rnd = new Random();
         static bool running = true;
 
         static void Main(string[] args)
@@ -31,6 +32,7 @@ namespace Concetti_Juego_Consola
             while (running)
             {
                 input();
+                update();
                 render();
             }
         }
@@ -78,6 +80,28 @@ namespace Concetti_Juego_Consola
             }
         }
 
+        static void update()
+        {
+            en.random = rnd.Next(1, 5);
+            switch (en.random)
+            {
+                case 1:
+                    en.posX--;
+                    break;
+                case 2:
+                    en.posX++;
+                    break;
+                case 3:
+                    en.posY--;
+                    break;
+                case 4:
+                    en.posY++;
+                    break;
+                default:
+                    break;
+            }
+
+        }
         static void render()
         {
 
