@@ -10,8 +10,8 @@ namespace Concetti_Juego_Consola
     class player
     {
 
-        public int posY = 0;
-        public int posX = 0;
+        public int posY = 2;
+        public int posX = 2;
     }
 
     class enemy
@@ -37,52 +37,59 @@ namespace Concetti_Juego_Consola
 
         static void input()
         {
-            ConsoleKeyInfo cki = Console.ReadKey();
-            if (cki.Key == ConsoleKey.LeftArrow)
+            if (Console.KeyAvailable)
             {
-                if (play.posX != 0)
-                {
-                    play.posX--;
-                }
-            }
 
-            if (cki.Key == ConsoleKey.RightArrow)
-            {
-                
+
+                ConsoleKeyInfo cki = Console.ReadKey();
+                if (cki.Key == ConsoleKey.LeftArrow)
+                {
+                    if (play.posX != 0)
+                    {
+                        play.posX--;
+                    }
+                }
+
+                if (cki.Key == ConsoleKey.RightArrow)
+                {
+
                     play.posX++;
-                
-               
-            }
 
-            if (cki.Key == ConsoleKey.UpArrow)
-            {
-                if (play.posY > 0)
-                {
-                    play.posY--;
+
                 }
-            }
 
-            if (cki.Key == ConsoleKey.DownArrow)
-            {
-                play.posY++;
-            }
+                if (cki.Key == ConsoleKey.UpArrow)
+                {
+                    if (play.posY > 1)
+                    {
+                        play.posY--;
+                    }
+                }
 
-            if (cki.Key == ConsoleKey.Escape)
-            {
-                running = false;
+                if (cki.Key == ConsoleKey.DownArrow)
+                {
+                    play.posY++;
+                }
+
+                if (cki.Key == ConsoleKey.Escape)
+                {
+                    running = false;
+                }
             }
         }
 
         static void render()
         {
-            
-               
-                Console.Clear();
-                Console.SetCursorPosition(play.posX, play.posY);
-                Console.Write("X");
+
+
+             Console.Clear();
+            Console.SetCursorPosition(play.posX, play.posY);
+            Console.Write("X");
 
             Console.SetCursorPosition(en.posX, en.posY);
             Console.Write("Y");
+
+            Thread.Sleep(70);
         }
     }
 }
