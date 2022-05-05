@@ -104,16 +104,18 @@ namespace Concetti_Juego_Consola
         }
         static void render()
         {
+            Console.Clear();
 
+            Console.SetCursorPosition(0, 0);
+            Console.Write("Puntos");
 
-             Console.Clear();
             Console.SetCursorPosition(play.posX, play.posY);
             Console.Write("X");
 
             Console.SetCursorPosition(en.posX, en.posY);
             Console.Write("Y");
 
-            Thread.Sleep(70);
+            Thread.Sleep(100);
         }
     }
 }
