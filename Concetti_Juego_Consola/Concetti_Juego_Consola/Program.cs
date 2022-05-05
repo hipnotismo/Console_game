@@ -13,9 +13,17 @@ namespace Concetti_Juego_Consola
         public int posY = 0;
         public int posX = 0;
     }
+
+    class enemy
+    {
+        public int posY = 10;
+        public int posX = 10;
+    }
     class Program
     {
         static player play = new player();
+        static enemy en = new enemy();
+
         static bool running = true;
 
         static void Main(string[] args)
@@ -72,6 +80,9 @@ namespace Concetti_Juego_Consola
                 Console.Clear();
                 Console.SetCursorPosition(play.posX, play.posY);
                 Console.Write("X");
+
+            Console.SetCursorPosition(en.posX, en.posY);
+            Console.Write("Y");
         }
     }
 }
