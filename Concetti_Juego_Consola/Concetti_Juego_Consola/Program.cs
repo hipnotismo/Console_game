@@ -18,9 +18,8 @@ namespace Concetti_Juego_Consola
         {
             while (running)
             {
-                input();
                 update();
-                render();
+              
             }
         }
 
@@ -28,52 +27,31 @@ namespace Concetti_Juego_Consola
         {
             if (Console.KeyAvailable)
             {
-
-
-                ConsoleKeyInfo cki = Console.ReadKey();
-                if (cki.Key == ConsoleKey.LeftArrow)
-                {
-                    if (play.posX != 0)
-                    {
-                        play.posX--;
-                    }
-                }
-
-                if (cki.Key == ConsoleKey.RightArrow)
-                {
-
-                    play.posX++;
-
-
-                }
-
-                if (cki.Key == ConsoleKey.UpArrow)
-                {
-                    if (play.posY > 1)
-                    {
-                        play.posY--;
-                    }
-                }
-
-                if (cki.Key == ConsoleKey.DownArrow)
-                {
-                    play.posY++;
-                }
-
-                if (cki.Key == ConsoleKey.Escape)
-                {
-                    running = false;
-                }
+                playerMovement();
             }
         }
 
         static void update()
         {
+            input();
+            render();
+            enemyMovement();         
+        }
+
+        static void enemyMovement()
+        {
             en.random = rnd.Next(1, 5);
             switch (en.random)
             {
                 case 1:
-                    en.posX--;
+                    if (en.posX > 1)
+                    {
+                        en.posX--;
+                    }
+                    else
+                    {
+                        en.posX++;
+                    }
                     break;
                 case 2:
                     en.posX++;
@@ -87,8 +65,43 @@ namespace Concetti_Juego_Consola
                 default:
                     break;
             }
-
         }
+
+        static void playerMovement()
+        {
+            ConsoleKeyInfo cki = Console.ReadKey();
+            if (cki.Key == ConsoleKey.LeftArrow)
+            {
+                if (play.posX != 0)
+                {
+                    play.posX--;
+                }
+            }
+
+            if (cki.Key == ConsoleKey.RightArrow)
+            {
+                play.posX++;
+            }
+
+            if (cki.Key == ConsoleKey.UpArrow)
+            {
+                if (play.posY > 1)
+                {
+                    play.posY--;
+                }
+            }
+
+            if (cki.Key == ConsoleKey.DownArrow)
+            {
+                play.posY++;
+            }
+
+            if (cki.Key == ConsoleKey.Escape)
+            {
+                running = false;
+            }
+        }
+
         static void render()
         {
             Console.Clear();
