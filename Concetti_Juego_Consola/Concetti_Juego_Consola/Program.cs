@@ -13,13 +13,14 @@ namespace Concetti_Juego_Consola
         static enemy en = new enemy();
         static Random rnd = new Random();
         static bool running = true;
+        static int points = 0;
+        static int lives = 5;
 
         static void Main(string[] args)
         {
             while (running)
             {
-                update();
-              
+                update();            
             }
         }
 
@@ -107,7 +108,16 @@ namespace Concetti_Juego_Consola
             Console.Clear();
 
             Console.SetCursorPosition(0, 0);
-            Console.Write("Puntos");
+            Console.Write("Points: ");
+
+            Console.SetCursorPosition(7, 0);
+            Console.Write(points);
+
+            Console.SetCursorPosition(30, 0);
+            Console.Write("Lives: ");
+
+            Console.SetCursorPosition(36, 0);
+            Console.Write(lives);
 
             Console.SetCursorPosition(play.posX, play.posY);
             Console.Write("X");
