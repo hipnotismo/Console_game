@@ -7,19 +7,6 @@ using System.Threading.Tasks;
 
 namespace Concetti_Juego_Consola
 {
-    class player
-    {
-
-        public int posY = 2;
-        public int posX = 2;
-    }
-
-    class enemy
-    {
-        public int posY = 10;
-        public int posX = 10;
-        public int random = 0;
-    }
     class Program
     {
         static player play = new player();
