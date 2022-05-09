@@ -46,5 +46,10 @@ namespace Concetti_Juego_Consola
                     break;
             }
         }
+       public void enemyDraw()
+        {
+            Console.SetCursorPosition(posX, posY);
+            Console.Write("x");
+        }
     }
 }

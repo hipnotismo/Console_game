@@ -40,5 +40,11 @@ namespace Concetti_Juego_Consola
                 posY++;
             }
         }
+
+        public void playerDraw()
+        {
+            Console.SetCursorPosition(posX, posY);
+            Console.Write("☺");
+        }
     }
 }

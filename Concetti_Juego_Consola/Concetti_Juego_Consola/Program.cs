@@ -47,41 +47,6 @@ namespace Concetti_Juego_Consola
             en.enemyMovement(en.random,ref en.posX,ref en.posY);         
         }
       
-        //static void playerMovement()
-        //{
-        //    ConsoleKeyInfo cki = Console.ReadKey();
-        //    if (cki.Key == ConsoleKey.LeftArrow)
-        //    {
-        //        if (play.posX != 0)
-        //        {
-        //            play.posX--;
-        //        }
-        //    }
-
-        //    if (cki.Key == ConsoleKey.RightArrow)
-        //    {
-        //        play.posX++;
-        //    }
-
-        //    if (cki.Key == ConsoleKey.UpArrow)
-        //    {
-        //        if (play.posY > 1)
-        //        {
-        //            play.posY--;
-        //        }
-        //    }
-
-        //    if (cki.Key == ConsoleKey.DownArrow)
-        //    {
-        //        play.posY++;
-        //    }
-
-        //    if (cki.Key == ConsoleKey.Escape)
-        //    {
-        //        running = false;
-        //    }
-        //}
-
         static void render()
         {
             Console.Clear();
@@ -98,11 +63,9 @@ namespace Concetti_Juego_Consola
             Console.SetCursorPosition(36, 0);
             Console.Write(lives);
 
-            Console.SetCursorPosition(play.posX, play.posY);
-            Console.Write("X");
+            play.playerDraw();
 
-            Console.SetCursorPosition(en.posX, en.posY);
-            Console.Write("Y");
+            en.enemyDraw();
 
             Thread.Sleep(100);
         }
