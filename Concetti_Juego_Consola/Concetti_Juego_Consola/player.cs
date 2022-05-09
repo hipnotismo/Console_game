@@ -10,7 +10,7 @@ namespace Concetti_Juego_Consola
     {
         public int posY = 2;
         public int posX = 2;
-
+        public bool destroy = false; 
         public void playerMovement()
         {
             ConsoleKeyInfo cki = Console.ReadKey();

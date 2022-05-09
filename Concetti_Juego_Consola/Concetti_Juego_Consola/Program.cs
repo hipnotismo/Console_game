@@ -19,7 +19,7 @@ namespace Concetti_Juego_Consola
         static int lives = 5;
         static int saveRan = 0;
 
-        //pantall es 29 en Y,
+        //pantall es 29 en Y, 118 en X
         
         static void Main(string[] args)
         {
@@ -50,7 +50,8 @@ namespace Concetti_Juego_Consola
             render();
             en.random = rnd.Next(1, 5);
             en.enemyMovement(en.random,ref en.posX,ref en.posY);
-            collision();
+            enemyCollision();
+            powerCollision();
         }
       
         static void render()
@@ -68,7 +69,11 @@ namespace Concetti_Juego_Consola
 
             Console.SetCursorPosition(36, 0);
             Console.Write(lives);
-
+            if (power.active == false)
+            {
+                Console.SetCursorPosition(40, 0);
+                Console.Write("Atacar");
+            }
             play.playerDraw();
 
             en.enemyDraw();
@@ -77,39 +82,54 @@ namespace Concetti_Juego_Consola
 
             Thread.Sleep(100);
         }
-        static void collision() 
+        static void enemyCollision() 
         {
             if (play.posX == en.posX && play.posY == en.posY)
             {
-                saveRan = ranPos.Next(1, 5);
-                switch (saveRan)
+                if (play.destroy == false)
                 {
-                    case 1:
-                        play.posX = 5;
-                        play.posY = 5; 
-                        break;
-                    case 2:
-                        play.posX = 5;
-                        play.posY = 20;
-                        break;
-                    case 3:
-                        play.posX = 30;
-                        play.posY = 15;
-                        break;
-                    case 4:
-                        play.posX = 15;
-                        play.posY = 30;
-                        break;
-                    default:
-                        break;
+                    saveRan = ranPos.Next(1, 5);
+                    switch (saveRan)
+                    {
+                        case 1:
+                            play.posX = 5;
+                            play.posY = 5;
+                            break;
+                        case 2:
+                            play.posX = 5;
+                            play.posY = 20;
+                            break;
+                        case 3:
+                            play.posX = 30;
+                            play.posY = 15;
+                            break;
+                        case 4:
+                            play.posX = 15;
+                            play.posY = 30;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    lives--;
+
+                    if (lives == 0)
+                    {
+                        running = false;
+                    }
                 }
-
-                lives--;
-
-                if (lives == 0)
+                else
                 {
-                    running = false;
+
                 }
+            }
+        }
+        static void powerCollision()
+        {
+            if (play.posX == power.posX && play.posY == power.posY)              
+            {
+                play.destroy = true;
+                power.active = false;
             }
         }
     }

@@ -8,13 +8,18 @@ namespace Concetti_Juego_Consola
 {
     class powerUp
     {
-        public int posY = 29;
-        public int posX = 118;
+        public int posY = 28;
+        public int posX = 65;
+        public bool active = true;
 
         public void powerDraw()
         {
-            Console.SetCursorPosition(posX, posY);
-            Console.Write("@");
+            if (active)
+            {
+                Console.SetCursorPosition(posX, posY);
+                Console.Write("@");
+            }
+         
         }
     }
 }
