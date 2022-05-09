@@ -11,6 +11,7 @@ namespace Concetti_Juego_Consola
     {
         static player play = new player();
         static enemy en = new enemy();
+        static powerUp power = new powerUp();
         static Random rnd = new Random();
         static Random ranPos = new Random();
         static bool running = true;
@@ -18,6 +19,8 @@ namespace Concetti_Juego_Consola
         static int lives = 5;
         static int saveRan = 0;
 
+        //pantall es 29 en Y,
+        
         static void Main(string[] args)
         {
             while (running)
@@ -69,6 +72,8 @@ namespace Concetti_Juego_Consola
             play.playerDraw();
 
             en.enemyDraw();
+
+            power.powerDraw();
 
             Thread.Sleep(100);
         }
