@@ -120,7 +120,13 @@ namespace Concetti_Juego_Consola
                 }
                 else
                 {
-
+                    points++;
+                    play.destroy = false;
+                    power.active = true;
+                    en.posX = ranPos.Next(1, 20); 
+                    en.posY = ranPos.Next(1, 40);
+                    power.posX = ranPos.Next(1, 20);
+                    power.posY = ranPos.Next(1, 40);
                 }
             }
         }
