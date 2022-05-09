@@ -11,5 +11,33 @@ namespace Concetti_Juego_Consola
         public int posY = 10;
         public int posX = 10;
         public int random = 0;
+
+       public void enemyMovement(int random,ref int posX,ref int posY)
+        {
+            switch (random)
+            {
+                case 1:
+                    if (posX > 1)
+                    {
+                        posX--;
+                    }
+                    else
+                    {
+                        posX++;
+                    }
+                    break;
+                case 2:
+                    posX++;
+                    break;
+                case 3:
+                    posY--;
+                    break;
+                case 4:
+                    posY++;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
