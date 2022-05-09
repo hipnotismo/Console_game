@@ -28,11 +28,14 @@ namespace Concetti_Juego_Consola
         {
             if (Console.KeyAvailable)
             {
+                ConsoleKeyInfo cki = Console.ReadKey();
+
                 play.playerMovement();
-                //if (cki.Key == ConsoleKey.Escape)
-                //{
-                //    running = false;
-                //}
+
+                if (cki.Key == ConsoleKey.Escape)
+                {
+                    running = false;
+                }
             }
         }
 

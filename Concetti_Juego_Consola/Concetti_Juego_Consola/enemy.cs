@@ -27,13 +27,20 @@ namespace Concetti_Juego_Consola
                     }
                     break;
                 case 2:
-                    posX++;
+                  //  posX++;
                     break;
                 case 3:
-                    posY--;
+                    if (posY > 1)
+                    {
+                        posY--;
+                    }
+                    else
+                    {
+                        posY++;
+                    }
                     break;
                 case 4:
-                    posY++;
+                   // posY++;
                     break;
                 default:
                     break;
