@@ -98,7 +98,9 @@ namespace Concetti_Juego_Consola
                     default:
                         break;
                 }
+
                 lives--;
+
                 if (lives == 0)
                 {
                     running = false;
