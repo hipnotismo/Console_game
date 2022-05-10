@@ -12,6 +12,9 @@ namespace Concetti_Juego_Consola
         static Player play = null;
         static Player play2 = null;
         static Enemy en = null;
+        static Enemy en2 = null;
+        static Enemy en3 = null;
+
         static PowerUp power = null;
         static Random rnd = null;
         static Random ranPos = null;
@@ -39,7 +42,10 @@ namespace Concetti_Juego_Consola
             Console.CursorVisible = false;
             play = new Player(2,2, "♂");
             play2 = new Player(10,10, "☺");
-            en = new Enemy(15,15);
+            en = new Enemy(15,15,"X",1);
+            en2 = new Enemy(10, 10, "X", 2);
+            en3 = new Enemy(25, 25, "X", 3);
+
             power = new PowerUp(28,28, true, "@");
             rnd = new Random();
             ranPos = new Random();
@@ -78,7 +84,11 @@ namespace Concetti_Juego_Consola
             Input();
             Render();
             en._ran = rnd.Next(1, 5);
-            en.EnemyMovement(en._ran, ref en._posX, ref en._posY);
+            en.EnemyMovement(en._ran);
+            en._ran = rnd.Next(1, 3);
+            en2.EnemyMovement(en._ran);
+            en._ran = rnd.Next(1, 5);
+            en3.EnemyMovement(en._ran);
             EnemyCollision();
             PowerCollision();
         }
@@ -109,7 +119,8 @@ namespace Concetti_Juego_Consola
             play2.PlayerDraw();
 
             en.EnemyDraw();
-
+            en2.EnemyDraw();
+            en3.EnemyDraw();
             power.PowerDraw();
 
             Thread.Sleep(100);
