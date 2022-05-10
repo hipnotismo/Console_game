@@ -21,6 +21,7 @@ namespace Concetti_Juego_Consola
             _sym = sym;
             _type = type;
         }
+
         public void EnemyMovement(int ran)
         {
             switch (_type)
@@ -123,9 +124,11 @@ namespace Concetti_Juego_Consola
                     break;
             }
         }
+
        public void EnemyDraw()
         {
             Console.SetCursorPosition(_posX, _posY);
+
             switch (_type)
             {
                 case 1:
@@ -140,9 +143,9 @@ namespace Concetti_Juego_Consola
                 default:
                     break;
             }
+
             Console.Write(_sym,Console.ForegroundColor);
             Console.ResetColor();
-
         }
     }
 }

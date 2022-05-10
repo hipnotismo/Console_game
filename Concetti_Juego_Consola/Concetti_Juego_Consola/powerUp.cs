@@ -20,6 +20,7 @@ namespace Concetti_Juego_Consola
             _active = active;
             _sym = sym;
         }
+
         public void PowerDraw()
         {
             if (_active)

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Concetti_Juego_Consola
 {
@@ -125,6 +121,7 @@ namespace Concetti_Juego_Consola
 
             Thread.Sleep(100);
         }
+
         static void EnemyCollision()
         {
             if (play._posX == en._posX && play._posY == en._posY)
@@ -155,6 +152,7 @@ namespace Concetti_Juego_Consola
                 }
             }
         }
+
         static void PowerCollision()
         {
             if (play._posX == power._posX && play._posY == power._posY)

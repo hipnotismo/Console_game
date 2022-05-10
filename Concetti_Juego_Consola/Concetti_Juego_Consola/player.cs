@@ -19,6 +19,7 @@ namespace Concetti_Juego_Consola
             _posY = posY;
             _sym = sym;
         }
+
         public void PlayerMovement(int num)
         {         
             switch (num)
