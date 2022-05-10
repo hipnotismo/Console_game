@@ -19,6 +19,10 @@ namespace Concetti_Juego_Consola
         static bool running = true;
         static int points = 0;
         static int lives = 5;
+
+        static int points2 = 0;
+        static int lives2 = 5;
+
         static int saveRan = 0;
 
         public void RunGame()
@@ -88,7 +92,13 @@ namespace Concetti_Juego_Consola
 
             Console.SetCursorPosition(10, 0);
             Console.Write("Lives ♂: " + lives);
-         
+
+            Console.SetCursorPosition(25, 0);
+            Console.Write("Points ☺: " + points2);
+
+            Console.SetCursorPosition(35, 0);
+            Console.Write("Lives ☺: " + lives2);
+
             if (power._active == false)
             {
                 Console.SetCursorPosition(40, 0);
