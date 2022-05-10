@@ -9,11 +9,12 @@ namespace Concetti_Juego_Consola
 {
     class GameManager
     {
-        static Player play = new Player();
-        static Enemy en = new Enemy();
-        static PowerUp power = new PowerUp();
-        static Random rnd = new Random();
-        static Random ranPos = new Random();
+        static Player play = null;
+        static Player play2 = null;
+        static Enemy en = null;
+        static PowerUp power = null;
+        static Random rnd = null;
+        static Random ranPos = null;
 
         static bool running = true;
         static int points = 0;
@@ -22,10 +23,22 @@ namespace Concetti_Juego_Consola
 
         public void RunGame()
         {
+            Init();
             while (running)
             {
                 Update();
             }
+        }
+
+        static void Init()
+        {
+            Console.CursorVisible = false;
+            play = new Player(2,2);
+            play2 = new Player(10,10);
+            en = new Enemy();
+            power = new PowerUp();
+            rnd = new Random();
+            ranPos = new Random();
         }
 
         static void Input()
@@ -33,9 +46,22 @@ namespace Concetti_Juego_Consola
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo cki = Console.ReadKey();
+                int ref1 = 0;
+                int ref2 = 0;
 
-                play.PlayerMovement();
+                if (cki.Key == ConsoleKey.LeftArrow) ref1 = 1;
+                if (cki.Key == ConsoleKey.RightArrow) ref1 = 2;
+                if (cki.Key == ConsoleKey.UpArrow) ref1 = 3;
+                if (cki.Key == ConsoleKey.DownArrow) ref1 = 4;
 
+
+                if (cki.Key == ConsoleKey.A) ref2 = 1;
+                if (cki.Key == ConsoleKey.D) ref2 = 2;
+                if (cki.Key == ConsoleKey.W) ref2 = 3;
+                if (cki.Key == ConsoleKey.S) ref2 = 4;
+
+                play.PlayerMovement(ref1);
+                play2.PlayerMovement(ref2);
                 if (cki.Key == ConsoleKey.Escape)
                 {
                     running = false;
@@ -58,22 +84,19 @@ namespace Concetti_Juego_Consola
             Console.Clear();
 
             Console.SetCursorPosition(0, 0);
-            Console.Write("Points: ");
-
-            Console.SetCursorPosition(7, 0);
-            Console.Write(points);
+            Console.Write("Points: "+ points);
 
             Console.SetCursorPosition(30, 0);
-            Console.Write("Lives: ");
-
-            Console.SetCursorPosition(36, 0);
-            Console.Write(lives);
+            Console.Write("Lives: " + lives);
+         
             if (power.active == false)
             {
                 Console.SetCursorPosition(40, 0);
                 Console.Write("Atacar");
             }
+
             play.PlayerDraw();
+            play2.PlayerDraw();
 
             en.EnemyDraw();
 

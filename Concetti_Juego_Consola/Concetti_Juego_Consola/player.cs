@@ -10,34 +10,37 @@ namespace Concetti_Juego_Consola
     {
         public int posY = 2;
         public int posX = 2;
-        public bool destroy = false; 
-        public void PlayerMovement()
+        public bool destroy = false;
+        private int num;
+        public Player(int posiY, int posiX)
         {
-            ConsoleKeyInfo cki = Console.ReadKey();
-            if (cki.Key == ConsoleKey.LeftArrow)
+            posX = posiX;
+            posY = posiY;
+        }
+        public void PlayerMovement(int num)
+        {         
+            switch (num)
             {
-                if (posX != 0)
-                {
-                    posX--;
-                }
-            }
-
-            if (cki.Key == ConsoleKey.RightArrow)
-            {
-                posX++;
-            }
-
-            if (cki.Key == ConsoleKey.UpArrow)
-            {
-                if (posY > 1)
-                {
-                    posY--;
-                }
-            }
-
-            if (cki.Key == ConsoleKey.DownArrow)
-            {
-                posY++;
+                case 1:
+                    if (posX != 0)
+                    {
+                        posX--;
+                    }
+                    break;
+                case 2:                  
+                    posX++;
+                    break;
+                case 3:
+                    if (posY > 1)
+                    {
+                        posY--;
+                    }
+                        break;
+                case 4:
+                    posY++;
+                    break;
+                default:
+                    break;
             }
         }
 
