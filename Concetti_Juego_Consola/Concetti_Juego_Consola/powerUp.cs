@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Concetti_Juego_Consola
 {
-    class powerUp
+    class PowerUp
     {
         public int posY = 28;
         public int posX = 65;
         public bool active = true;
 
-        public void powerDraw()
+        public void PowerDraw()
         {
             if (active)
             {

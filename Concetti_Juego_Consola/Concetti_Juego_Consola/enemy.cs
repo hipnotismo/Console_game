@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Concetti_Juego_Consola
 {
-    class enemy
+    class Enemy
     {
         public int posY = 10;
         public int posX = 10;
         public int random = 0;
 
-       public void enemyMovement(int random,ref int posX,ref int posY)
+       public void EnemyMovement(int random,ref int posX,ref int posY)
         {
             switch (random)
             {
@@ -46,7 +46,7 @@ namespace Concetti_Juego_Consola
                     break;
             }
         }
-       public void enemyDraw()
+       public void EnemyDraw()
         {
             Console.SetCursorPosition(posX, posY);
             Console.Write("x");

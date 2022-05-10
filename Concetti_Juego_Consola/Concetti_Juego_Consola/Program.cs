@@ -9,11 +9,12 @@ namespace Concetti_Juego_Consola
 {
     class Program
     {
-        static player play = new player();
-        static enemy en = new enemy();
-        static powerUp power = new powerUp();
+        static Player play = new Player();
+        static Enemy en = new Enemy();
+        static PowerUp power = new PowerUp();
         static Random rnd = new Random();
         static Random ranPos = new Random();
+
         static bool running = true;
         static int points = 0;
         static int lives = 5;
@@ -25,17 +26,17 @@ namespace Concetti_Juego_Consola
         {
             while (running)
             {
-                update();            
+                Update();            
             }
         }
 
-        static void input()
+        static void Input()
         {
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo cki = Console.ReadKey();
 
-                play.playerMovement();
+                play.PlayerMovement();
 
                 if (cki.Key == ConsoleKey.Escape)
                 {
@@ -44,17 +45,17 @@ namespace Concetti_Juego_Consola
             }
         }
 
-        static void update()
+        static void Update()
         {
-            input();
-            render();
+            Input();
+            Render();
             en.random = rnd.Next(1, 5);
-            en.enemyMovement(en.random,ref en.posX,ref en.posY);
-            enemyCollision();
-            powerCollision();
+            en.EnemyMovement(en.random,ref en.posX,ref en.posY);
+            EnemyCollision();
+            PowerCollision();
         }
       
-        static void render()
+        static void Render()
         {
             Console.Clear();
 
@@ -74,15 +75,15 @@ namespace Concetti_Juego_Consola
                 Console.SetCursorPosition(40, 0);
                 Console.Write("Atacar");
             }
-            play.playerDraw();
+            play.PlayerDraw();
 
-            en.enemyDraw();
+            en.EnemyDraw();
 
-            power.powerDraw();
+            power.PowerDraw();
 
             Thread.Sleep(100);
         }
-        static void enemyCollision() 
+        static void EnemyCollision() 
         {
             if (play.posX == en.posX && play.posY == en.posY)
             {
@@ -130,7 +131,7 @@ namespace Concetti_Juego_Consola
                 }
             }
         }
-        static void powerCollision()
+        static void PowerCollision()
         {
             if (play.posX == power.posX && play.posY == power.posY)              
             {

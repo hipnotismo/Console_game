@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Concetti_Juego_Consola
 {
-    class player
+    class Player
     {
         public int posY = 2;
         public int posX = 2;
         public bool destroy = false; 
-        public void playerMovement()
+        public void PlayerMovement()
         {
             ConsoleKeyInfo cki = Console.ReadKey();
             if (cki.Key == ConsoleKey.LeftArrow)
@@ -41,7 +41,7 @@ namespace Concetti_Juego_Consola
             }
         }
 
-        public void playerDraw()
+        public void PlayerDraw()
         {
             Console.SetCursorPosition(posX, posY);
             Console.Write("☺");
