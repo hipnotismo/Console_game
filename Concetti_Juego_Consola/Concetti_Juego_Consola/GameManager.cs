@@ -33,10 +33,10 @@ namespace Concetti_Juego_Consola
         static void Init()
         {
             Console.CursorVisible = false;
-            play = new Player(2,2, "☺");
+            play = new Player(2,2, "♂");
             play2 = new Player(10,10, "☺");
-            en = new Enemy();
-            power = new PowerUp();
+            en = new Enemy(15,15);
+            power = new PowerUp(28,28, true, "@");
             rnd = new Random();
             ranPos = new Random();
         }
@@ -73,8 +73,8 @@ namespace Concetti_Juego_Consola
         {
             Input();
             Render();
-            en.random = rnd.Next(1, 5);
-            en.EnemyMovement(en.random, ref en.posX, ref en.posY);
+            en._ran = rnd.Next(1, 5);
+            en.EnemyMovement(en._ran, ref en._posX, ref en._posY);
             EnemyCollision();
             PowerCollision();
         }
@@ -84,15 +84,15 @@ namespace Concetti_Juego_Consola
             Console.Clear();
 
             Console.SetCursorPosition(0, 0);
-            Console.Write("Points: "+ points);
+            Console.Write("Points ♂: " + points);
 
-            Console.SetCursorPosition(30, 0);
-            Console.Write("Lives: " + lives);
+            Console.SetCursorPosition(10, 0);
+            Console.Write("Lives ♂: " + lives);
          
-            if (power.active == false)
+            if (power._active == false)
             {
                 Console.SetCursorPosition(40, 0);
-                Console.Write("Atacar");
+                Console.Write("Atacar ♂");
             }
 
             play.PlayerDraw();
@@ -106,33 +106,15 @@ namespace Concetti_Juego_Consola
         }
         static void EnemyCollision()
         {
-            if (play.posX == en.posX && play.posY == en.posY)
+            if (play._posX == en._posX && play._posY == en._posY)
             {
                 if (play.destroy == false)
                 {
-                    saveRan = ranPos.Next(1, 5);
-                    switch (saveRan)
-                    {
-                        case 1:
-                            play.posX = 5;
-                            play.posY = 5;
-                            break;
-                        case 2:
-                            play.posX = 5;
-                            play.posY = 20;
-                            break;
-                        case 3:
-                            play.posX = 30;
-                            play.posY = 15;
-                            break;
-                        case 4:
-                            play.posX = 15;
-                            play.posY = 30;
-                            break;
-                        default:
-                            break;
-                    }
-
+                   
+                    saveRan = ranPos.Next(1, 30);
+                    play._posX = saveRan;
+                   saveRan = ranPos.Next(1, 30);
+                    play._posY = saveRan;
                     lives--;
 
                     if (lives == 0)
@@ -144,20 +126,20 @@ namespace Concetti_Juego_Consola
                 {
                     points++;
                     play.destroy = false;
-                    power.active = true;
-                    en.posX = ranPos.Next(1, 20);
-                    en.posY = ranPos.Next(1, 40);
-                    power.posX = ranPos.Next(1, 20);
-                    power.posY = ranPos.Next(1, 40);
+                    power._active = true;
+                    en._posX = ranPos.Next(1, 20);
+                    en._posY = ranPos.Next(1, 40);
+                    power._posX = ranPos.Next(1, 20);
+                    power._posY = ranPos.Next(1, 40);
                 }
             }
         }
         static void PowerCollision()
         {
-            if (play.posX == power.posX && play.posY == power.posY)
+            if (play._posX == power._posX && play._posY == power._posY)
             {
                 play.destroy = true;
-                power.active = false;
+                power._active = false;
             }
         }
     }

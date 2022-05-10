@@ -8,10 +8,15 @@ namespace Concetti_Juego_Consola
 {
     class Enemy
     {
-        public int posY = 10;
-        public int posX = 10;
-        public int random = 0;
+        public int _posY;
+        public int _posX;
+        public int _ran;
 
+        public Enemy(int posX, int posY)
+        {
+            _posX = posX;
+            _posY = posY;
+        }
        public void EnemyMovement(int random,ref int posX,ref int posY)
         {
             switch (random)
@@ -48,7 +53,7 @@ namespace Concetti_Juego_Consola
         }
        public void EnemyDraw()
         {
-            Console.SetCursorPosition(posX, posY);
+            Console.SetCursorPosition(_posX, _posY);
             Console.Write("x");
         }
     }

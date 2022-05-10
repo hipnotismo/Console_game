@@ -8,38 +8,38 @@ namespace Concetti_Juego_Consola
 {
     class Player
     {
-        public int posY = 2;
-        public int posX = 2;
+        public int _posY;
+        public int _posX;
         public bool destroy = false;
-        private string character;
+        private string _sym;
 
-        public Player(int posiY, int posiX, string simbol)
+        public Player(int posY, int posX, string sym)
         {
-            posX = posiX;
-            posY = posiY;
-            character = simbol;
+            _posX = posX;
+            _posY = posY;
+            _sym = sym;
         }
         public void PlayerMovement(int num)
         {         
             switch (num)
             {
                 case 1:
-                    if (posX != 0)
+                    if (_posX != 0)
                     {
-                        posX--;
+                        _posX--;
                     }
                     break;
                 case 2:                  
-                    posX++;
+                    _posX++;
                     break;
                 case 3:
-                    if (posY > 1)
+                    if (_posY > 1)
                     {
-                        posY--;
+                        _posY--;
                     }
                         break;
                 case 4:
-                    posY++;
+                    _posY++;
                     break;
                 default:
                     break;
@@ -48,8 +48,8 @@ namespace Concetti_Juego_Consola
 
         public void PlayerDraw()
         {
-            Console.SetCursorPosition(posX, posY);
-            Console.Write(character);
+            Console.SetCursorPosition(_posX, _posY);
+            Console.Write(_sym);
         }
     }
 }
