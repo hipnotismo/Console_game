@@ -11,11 +11,13 @@ namespace Concetti_Juego_Consola
         public int posY = 2;
         public int posX = 2;
         public bool destroy = false;
-        private int num;
-        public Player(int posiY, int posiX)
+        private string character;
+
+        public Player(int posiY, int posiX, string simbol)
         {
             posX = posiX;
             posY = posiY;
+            character = simbol;
         }
         public void PlayerMovement(int num)
         {         
@@ -47,7 +49,7 @@ namespace Concetti_Juego_Consola
         public void PlayerDraw()
         {
             Console.SetCursorPosition(posX, posY);
-            Console.Write("☺");
+            Console.Write(character);
         }
     }
 }

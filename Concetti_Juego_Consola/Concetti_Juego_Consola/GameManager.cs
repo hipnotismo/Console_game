@@ -33,8 +33,8 @@ namespace Concetti_Juego_Consola
         static void Init()
         {
             Console.CursorVisible = false;
-            play = new Player(2,2);
-            play2 = new Player(10,10);
+            play = new Player(2,2, "☺");
+            play2 = new Player(10,10, "☺");
             en = new Enemy();
             power = new PowerUp();
             rnd = new Random();
