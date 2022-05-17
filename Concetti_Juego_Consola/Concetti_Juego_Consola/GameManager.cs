@@ -38,9 +38,9 @@ namespace Concetti_Juego_Consola
             Console.CursorVisible = false;
             play = new Player(2,2, "♂");
             play2 = new Player(10,10, "☺");
-            en = new Enemy(15,15,"X",1);
-            en2 = new Enemy(10, 10, "X", 2);
-            en3 = new Enemy(25, 25, "X", 3);
+            en = new Enemy(15,15,"X",1, new NormalMovement());
+            en2 = new Enemy(10, 10, "X", 2,new LateralMovement());
+            en3 = new Enemy(25, 25, "X", 3, new DiagonalMovement());
 
             power = new PowerUp(28,28, true, "@");
             rnd = new Random();

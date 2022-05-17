@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="enemy.cs" />
+    <Compile Include="Movement types\DiagonalMovement.cs" />
+    <Compile Include="Movement types\EnemyMovement.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="Movement types\LateralMovement.cs" />
+    <Compile Include="Movement types\NormalMovement.cs" />
     <Compile Include="player.cs" />
     <Compile Include="powerUp.cs" />
     <Compile Include="Program.cs" />
